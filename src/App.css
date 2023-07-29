@@ -1,0 +1,401 @@
+body {
+  background-color: black;
+  overflow-y: hidden;
+  margin: 5px;
+}
+
+.App {
+  text-align: center;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  height: 45px;
+  margin-top: 5px;
+  position: relative;
+  color: white;
+  font-family: "Victor Mono", monospace;
+  font-weight: 400;
+}
+
+.top-bar-left {
+  position: absolute;
+  left: 10px;
+  letter-spacing: 1.5px;
+}
+
+.top-bar-left a {
+  color: white;
+  text-decoration: none;
+}
+
+.top-bar-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+}
+
+.top-bar-right {
+  position: absolute;
+  right: 10px;
+  font-size: 35px;
+}
+
+.top-bar-right i:hover {
+  cursor: pointer;
+}
+
+.side-bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35%;
+  height: 100%;
+  background-color: white;
+  z-index: 1;
+}
+
+.side-bar ul {
+  margin-top: 50px;
+  padding: 0;
+}
+
+.side-bar li {
+  list-style-type: none;
+  text-align: right;
+  margin: 40px;
+  margin-right: 10px;
+}
+
+.side-bar a {
+  color: black;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.side-bar-close {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 30px;
+  margin: 10px;
+  color: black;
+}
+
+.side-bar-close:hover {
+  cursor: pointer;
+}
+
+.background {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+}
+
+.opener {
+  color: white;
+  margin: 30px;
+  display: flex;
+  justify-content: space-between; /* Spread cards evenly horizontally */
+  flex-wrap: wrap; /* Allow cards to wrap to the next row */
+}
+
+.opener a .opener h1 {
+  font-size: 50px;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  margin: 5px;
+  flex: 1 0 calc(25% - 40px); /* Each card takes 25% of the available space minus margins */
+  max-width: calc(25% - 40px); /* Set a maximum width for the cards */
+  box-sizing: border-box; /* Include padding and border in the width calculation */
+}
+
+.background-button {
+  height: 350px;
+  width: 100%;
+  position: absolute;
+  left: -15px;
+  top: 15px;
+  z-index: -1;
+  border-bottom-left-radius: 10px;
+}
+
+.button {
+  height: 350px;
+  /* width: 400px; */
+  text-decoration: none;
+  color: black;
+  background-color: #e6ccb3;
+  border-radius: 15px;
+  display: block;
+  text-align: center;
+  position: relative;
+  top: -20px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 0;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button h3,
+.button p {
+  text-align: left;
+  font-size: 30px;
+  position: relative;
+  top: 0px;
+  left: 15px;
+  font-family: "Victor Mono", monospace;
+}
+
+.button p {
+  top: -20px;
+  font-size: 15px;
+}
+
+.disclaimer {
+  font-size: 12px;
+
+  color: red;
+}
+
+.opener {
+  /* Add your initial styles here */
+  transition: all 0.5s ease-out; /* Animation transition time */
+}
+
+.slide-out {
+  transform: translateX(-200%); /* Slide to the right */
+}
+
+.main {
+  color: white;
+  text-align: left;
+  margin-left: 10px;
+  font-family: "Victor Mono", monospace;
+}
+
+.question-cards-outer-container {
+  overflow-x: hidden;
+}
+
+.question-cards-container {
+  display: flex;
+  overflow: hidden;
+  width: fit-content;
+  padding: 20px; /* Add some padding to the container, so cards don't stick to the edges */
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  left: 0%;
+  scroll-behavior: smooth; /* Enable smooth scrolling */
+}
+
+.question-card {
+  width: 510px !important;
+  height: 590px;
+  left: 30%;
+  top: 0%;
+  transform: translate(-50%, -50%);
+  position: relative;
+  background-color: #e6ccb3;
+  margin-right: 390px;
+  font-family: "Victor Mono", monospace;
+  font-weight: 700;
+  border-top-right-radius: 10px;
+}
+
+.question-card p {
+  text-align: left;
+  width: 90%;
+  padding: 15px;
+  margin: 10px;
+}
+
+.question-card span {
+  border: 2.5px solid black;
+  border-radius: 50%;
+  padding: 4px 5px;
+  font-size: 18px;
+  margin-inline-end: 10px;
+}
+
+.letter {
+  margin-inline-end: 0px !important;
+  border: none !important;
+}
+
+.selected-correct span {
+  border-color: #00ff00;
+  color: #00ff00;
+  font-weight: bold;
+}
+
+.selected-incorrect span {
+  border-color: red;
+  color: red;
+  font-weight: bold;
+}
+
+.question-card p:hover {
+  cursor: pointer;
+}
+
+.question-cards-background {
+  width: 510px; /* Adjust this width to control how much the background peeks out */
+  height: 590px; /* Adjust this height to control how much the background peeks out */
+  position: absolute;
+  top: 45px;
+  left: -25px;
+  transform-origin: top left; /* Rotate around the top-left corner */
+  border-radius: 0px; /* Apply the same border radius as the question-cards-container */
+  z-index: -1; /* Set the z-index to ensure it's behind the question cards container */
+  border-bottom-left-radius: 10px;
+}
+
+.question-content {
+  width: 510px;
+  height: 100%;
+  border-bottom-left-radius: 10px;
+  background-color: #e6ccb3;
+}
+
+.incorrect-correct p {
+  background-color: white;
+  width: 50%;
+}
+
+.incorrect-correct p:hover {
+  background-color: white;
+  color: black;
+  cursor: default;
+}
+
+.selected {
+  background-color: #ff0000 !important;
+  color: white !important;
+}
+
+.next-button {
+  margin-top: 20px;
+  padding: 5px 7px;
+  border-radius: 50px;
+  border-width: 3px;
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.next-button:hover {
+  cursor: pointer;
+}
+
+.finish-button {
+  padding: 5px 7px;
+  border-radius: 50px;
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.finish-button:hover {
+  cursor: pointer;
+}
+
+.custom-component {
+  width: 100%;
+  height: 100%; /* Adjust the height as needed */
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 3s ease-in-out;
+}
+
+.custom-component h1 {
+  color: white;
+  font-size: 50px;
+}
+
+.inner-cover h1 {
+  font-family: "Victor Mono", monospace;
+  font-weight: 100;
+  margin-top: 30px;
+}
+
+.score-slash {
+  position: relative;
+  top: 30px;
+}
+
+.percentage {
+  font-size: 70px !important;
+  font-family: "Victor Mono", monospace;
+  font-weight: 700 !important;
+  position: relative;
+  top: -10px;
+}
+
+.score-bar {
+  width: 350px; /* Adjust the width and height as needed for the size of your circular progress bar */
+  height: 350px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.inner-cover {
+  background-color: #666666;
+  width: 333px; /* Adjust the width and height as needed for the size of your circular progress bar */
+  height: 333px;
+  border-radius: 50%;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.score-bar-inner {
+  background: conic-gradient(
+    #00ff00 0deg,
+    #ffffff 0deg
+  ); /* Set initial background to transparent */
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: center;
+  transform: rotate(180deg);
+  z-index: 1;
+}
+
+.buttons {
+  margin-top: 60px;
+}
+
+.button-component {
+  color: black;
+  text-decoration: none;
+  border-radius: 7px;
+  padding: 10px 30px;
+  background-color: white;
+}
