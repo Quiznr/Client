@@ -2,7 +2,12 @@ import React, { useEffect } from "react";
 
 export default function MakeQuiz() {
   useEffect(() => {
-    fetch("https://quizner-backend-836f3d753759.herokuapp.com//home")
+    fetch("https://quizner-backend-836f3d753759.herokuapp.com/home", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
