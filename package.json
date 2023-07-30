@@ -1,6 +1,5 @@
 {
   "name": "quiz",
-  "proxy": "http://localhost:3002",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
