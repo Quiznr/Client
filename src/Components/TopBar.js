@@ -48,7 +48,7 @@ export default function TopBar() {
                 <a href="#">Quizzes</a>
               </li>
               <li>
-                <a href="#">Make A Quiz</a>
+                <a href="/Make-A-Quiz">Make A Quiz</a>
               </li>
               <li>
                 <a href="#">Most Popular</a>
