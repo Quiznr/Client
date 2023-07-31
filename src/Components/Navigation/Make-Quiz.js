@@ -21,15 +21,6 @@ export default function MakeQuiz() {
   return (
     <div className="makequiz-page">
       <h1 style={{ color: "white" }}>Make a Quiz</h1>
-      {/* <div className="form">
-        <form className="makequiz" method="POST" action="/home">
-          <input type="text" placeholder="Quiz Name" name="Quiz Name" />
-          <input type="text" placeholder="Quiz Description" />
-          <input type="text" placeholder="Quiz Category" />
-          <input type="text" placeholder="Quiz Difficulty" />
-          <button type="submit">Make Quiz</button>
-        </form>
-      </div> */}
     </div>
   );
 }
