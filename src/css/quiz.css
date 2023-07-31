@@ -1,0 +1,9 @@
+.makequiz-page {
+  position: absolute;
+  top: 10px;
+}
+
+.makequiz-page h1 {
+  color: white !important;
+  margin-top: 30px;
+}

@@ -1,13 +1,9 @@
 import React, { useEffect } from "react";
+import "../../css/quiz.css";
 
 export default function MakeQuiz() {
   useEffect(() => {
-    fetch("https://quizner-backend-836f3d753759.herokuapp.com/home", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    fetch("/home")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -24,7 +20,16 @@ export default function MakeQuiz() {
 
   return (
     <div className="makequiz-page">
-      <h1>Make a Quiz</h1>
+      <h1 style={{ color: "white" }}>Make a Quiz</h1>
+      <div className="form">
+        <form className="makequiz" method="POST" action="/home">
+          <input type="text" placeholder="Quiz Name" name="Quiz Name" />
+          <input type="text" placeholder="Quiz Description" />
+          <input type="text" placeholder="Quiz Category" />
+          <input type="text" placeholder="Quiz Difficulty" />
+          <button type="submit">Make Quiz</button>
+        </form>
+      </div>
     </div>
   );
 }
