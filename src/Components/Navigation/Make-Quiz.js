@@ -18,6 +18,34 @@ export default function MakeQuiz() {
       });
   }, []);
 
+  const baseURL = process.env.REACT_APP_API_BASE_URL || ""; // Use environment variable or empty string for local development
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+
+    fetch(`${baseURL}/home`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(Object.fromEntries(formData)),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error posting data:", error);
+      });
+  };
+
   return (
     <div className="makequiz-page">
       <h1 style={{ color: "white" }}>Make a Quiz</h1>
