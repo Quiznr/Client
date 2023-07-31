@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import "../../css/quiz.css";
 
 export default function MakeQuiz() {
+  const [backendData, setBackendData] = useState([]);
+
+  const backendURL = process.env.REACT_APP_API_BASE_URL;
+
   useEffect(() => {
-    fetch("https://quizner-backend-836f3d753759.herokuapp.com/home")
+    fetch(`${backendURL}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -12,6 +16,7 @@ export default function MakeQuiz() {
       })
       .then((data) => {
         console.log(data);
+        setBackendData(data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -116,6 +121,15 @@ export default function MakeQuiz() {
         />
         <button type="submit">Submit Quiz</button>
       </form>
+
+      <div className="quiz-list">
+        {/* {backendData.map((quiz) => (
+          <div className="quiz-card" key={quiz.id}>
+            <h2>{quiz.quiz_name}</h2>
+            <p>{quiz.quiz_description}</p>
+          </div>
+        ))} */}
+      </div>
     </div>
   );
 }

@@ -1,9 +1,13 @@
 .makequiz-page {
   position: absolute;
-  top: 10px;
+  top: 50px;
 }
 
 .makequiz-page h1 {
   color: white !important;
   margin-top: 30px;
+}
+
+.quiz-list {
+  color: white;
 }
