@@ -76,7 +76,7 @@ export default function MakeQuiz() {
   return (
     <div className="makequiz-page">
       <h1 style={{ color: "white" }}>Make a Quiz</h1>
-      <form className="makequiz-form" onSubmit={handleSubmit}>
+      {/* <form className="makequiz-form" onSubmit={handleSubmit}>
         <input
           type="text"
           name="quiz_name"
@@ -120,7 +120,7 @@ export default function MakeQuiz() {
           onChange={handleChange}
         />
         <button type="submit">Submit Quiz</button>
-      </form>
+      </form> */}
 
       <div className="quiz-list">
         {/* {backendData.map((quiz) => (
