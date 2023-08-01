@@ -6,6 +6,7 @@ export default function MakeQuiz() {
 
   const backendURL = process.env.REACT_APP_API_BASE_URL;
 
+  console.log("HI");
   useEffect(() => {
     fetch(`${backendURL}`)
       .then((response) => {
