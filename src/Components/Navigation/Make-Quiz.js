@@ -4,24 +4,24 @@ import "../../css/quiz.css";
 export default function MakeQuiz() {
   const [backendData, setBackendData] = useState([]);
 
-  // const backendURL = process.env.REACT_APP_API_BASE_URL;
+  const backendURL = process.env.REACT_APP_API_BASE_URL;
 
-  // useEffect(() => {
-  //   fetch(`${backendURL}`)
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error("Network response was not ok");
-  //       }
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       console.log(data);
-  //       setBackendData(data);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching data:", error);
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch(`${backendURL}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setBackendData(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
 
   const [formData, setFormData] = useState({
     quiz_name: "",
