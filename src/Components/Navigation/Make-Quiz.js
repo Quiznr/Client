@@ -65,13 +65,13 @@ export default function MakeQuiz() {
   //     });
   // };
 
-  // const handleChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setFormData((prevFormData) => ({
-  //     ...prevFormData,
-  //     [name]: value,
-  //   }));
-  // };
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
 
   return (
     <div className="makequiz-page">
