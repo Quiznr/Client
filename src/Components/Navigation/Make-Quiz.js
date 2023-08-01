@@ -7,7 +7,7 @@ export default function MakeQuiz() {
   const backendURL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
-    fetch(`${backendURL}`)
+    fetch(`/home`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
