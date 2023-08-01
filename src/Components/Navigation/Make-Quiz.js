@@ -35,7 +35,7 @@ export default function MakeQuiz() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch("https://quizner-backend-836f3d753759.herokuapp.com/home", {
+    fetch(`${backendURL}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -123,12 +123,12 @@ export default function MakeQuiz() {
       </form>
 
       <div className="quiz-list">
-        {/* {backendData.map((quiz) => (
+        {backendData.map((quiz) => (
           <div className="quiz-card" key={quiz.id}>
             <h2>{quiz.quiz_name}</h2>
             <p>{quiz.quiz_description}</p>
           </div>
-        ))} */}
+        ))}
       </div>
     </div>
   );
