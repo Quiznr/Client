@@ -36,6 +36,10 @@
 }
 
 @media screen and (max-width: 800px) {
+  .opener {
+    overflow-y: scroll;
+  }
+
   .card {
     flex: 1 0 calc(100% - 20px); /* Each card takes 25% of the available space minus margins */
     max-width: calc(100% - 20px);
