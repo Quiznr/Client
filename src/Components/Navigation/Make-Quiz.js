@@ -28,8 +28,8 @@ export default function MakeQuiz() {
     quiz_description: "",
     quiz_category: "",
     quiz_difficulty: "",
-    quiz_score: "",
-    quiz_high_score: "",
+    // quiz_score: "",
+    // quiz_high_score: "",
   });
 
   const handleSubmit = (event) => {
@@ -56,8 +56,8 @@ export default function MakeQuiz() {
           quiz_description: "",
           quiz_category: "",
           quiz_difficulty: "",
-          quiz_score: "",
-          quiz_high_score: "",
+          // quiz_score: "",
+          // quiz_high_score: "",
         });
       })
       .catch((error) => {
@@ -105,7 +105,7 @@ export default function MakeQuiz() {
           placeholder="Quiz Difficulty"
           onChange={handleChange}
         />
-        <input
+        {/* <input
           type="text"
           name="quiz_score"
           value={formData.quiz_score}
@@ -118,7 +118,7 @@ export default function MakeQuiz() {
           value={formData.quiz_high_score}
           placeholder="Quiz High Score"
           onChange={handleChange}
-        />
+        /> */}
         <button type="submit">Submit Quiz</button>
       </form>
 

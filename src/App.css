@@ -1,6 +1,6 @@
 body {
   background-color: black;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   margin: 5px;
 }
 
@@ -104,6 +104,8 @@ body {
   display: flex;
   justify-content: space-between; /* Spread cards evenly horizontally */
   flex-wrap: wrap; /* Allow cards to wrap to the next row */
+  height: auto !important;
+  overflow-y: scroll;
 }
 
 .opener a .opener h1 {
