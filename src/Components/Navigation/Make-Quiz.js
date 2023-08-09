@@ -1,41 +1,20 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "../../css/quiz.css";
 
-export default function MakeQuiz() {
-  const [backendData, setBackendData] = useState([]);
-
-  const backendURL = process.env.REACT_APP_API_BASE_URL;
-
-  useEffect(() => {
-    fetch(`${backendURL}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setBackendData(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
-
+export default function MakeQuiz({ backendData, backendURL }) {
+  console.log(backendData);
   const [formData, setFormData] = useState({
     quiz_name: "",
     quiz_description: "",
     quiz_category: "",
     quiz_difficulty: "",
-    // quiz_score: "",
-    // quiz_high_score: "",
   });
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch(`${backendURL}`, {
+    fetch(`${backendURL}/home`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -56,8 +35,6 @@ export default function MakeQuiz() {
           quiz_description: "",
           quiz_category: "",
           quiz_difficulty: "",
-          // quiz_score: "",
-          // quiz_high_score: "",
         });
       })
       .catch((error) => {
@@ -71,6 +48,10 @@ export default function MakeQuiz() {
       ...prevFormData,
       [name]: value,
     }));
+  };
+
+  const handleQuizClick = (quizId) => {
+    alert(`Clicked on quiz with ID: ${quizId}`);
   };
 
   return (
@@ -105,30 +86,18 @@ export default function MakeQuiz() {
           placeholder="Quiz Difficulty"
           onChange={handleChange}
         />
-        {/* <input
-          type="text"
-          name="quiz_score"
-          value={formData.quiz_score}
-          placeholder="Quiz Score"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="quiz_high_score"
-          value={formData.quiz_high_score}
-          placeholder="Quiz High Score"
-          onChange={handleChange}
-        /> */}
         <button type="submit">Submit Quiz</button>
       </form>
 
       <div className="quiz-list">
-        {backendData.map((quiz) => (
-          <div className="quiz-card" key={quiz.id}>
-            <h2>{quiz.quiz_name}</h2>
-            <p>{quiz.quiz_description}</p>
-          </div>
-        ))}
+        {/* {backendData.map((quiz) => (
+          // <Link to={`${backendURL}/quiz/${quiz.id}`} key={quiz.id}>
+          //   <div className="quiz-card" key={quiz.id}>
+          //     <h2>{quiz.quiz_name}</h2>
+          //     <p>{quiz.quiz_description}</p>
+          //   </div>
+          // </Link>
+        ))} */}
       </div>
     </div>
   );

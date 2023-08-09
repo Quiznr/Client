@@ -1,6 +1,8 @@
 .makequiz-page {
   position: absolute;
   top: 50px;
+  height: 100vh;
+  width: 100%;
 }
 
 .makequiz-page h1 {
@@ -10,4 +12,27 @@
 
 .quiz-list {
   color: white;
+}
+
+.makequiz-form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid white;
+  padding: 10px;
+  width: 400px;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.makequiz-form input {
+  margin-bottom: 10px;
+  height: 30px;
+}
+
+.makequiz-form button {
+  height: 45px;
+  width: 50%;
+  margin: 0 auto;
 }

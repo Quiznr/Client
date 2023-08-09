@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import QuestionCards from "./QuestionCards";
 import axios from "axios";
 
-export default function Opener() {
+export default function Opener({ backendData, backendURL }) {
   const [isButtonClicked, setIsButtonClicked] = useState(false);
 
   const quizzes = [
@@ -39,17 +40,17 @@ export default function Opener() {
   return (
     <>
       <div className="opener">
-        {quizzes.map((quiz) => (
+        {backendData.map((quiz) => (
           <div className="card">
-            <a href="quiz" className="button" onClick={handleButtonClick}>
+            <Link to={`/quiz/${quiz.id}`} key={quiz.id} className="button">
               <div
                 className="background-button"
                 style={{ backgroundColor: `${quiz.color}` }}
               ></div>
-              <h3>{quiz.name}</h3>
-              <p>Difficulty: {quiz.difficulty}</p>
+              <h3>{quiz.quiz_name}</h3>
+              <p>Difficulty: {quiz.quiz_difficulty}</p>
               <p>Questions: {quiz.questions}</p>
-            </a>
+            </Link>
           </div>
         ))}
       </div>
